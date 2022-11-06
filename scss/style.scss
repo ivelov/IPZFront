@@ -924,7 +924,7 @@ main {
     }
   }
   &__border-bottom {
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $body-color;
   }
   &__title {
     font-size: 20px;
@@ -1020,7 +1020,7 @@ main {
       padding-right: 0 !important;
       background: none !important;
     }
-    label {
+    /*label {
       position: relative;
       cursor: pointer;
       display: block;
@@ -1046,7 +1046,7 @@ main {
         border-radius: 3px;
         border: 1px solid #9ca0ab;
       }
-    }
+    }*/
   }
 
   // CATALOG-RIGHT
@@ -1077,7 +1077,7 @@ main {
       color: $secondery-color;
       padding: 8px;
       background: none;
-      border: 1px solid $border-color;
+      border: 1px solid $body-color;
     }
     &_active {
       border-color: $primary-color !important;
