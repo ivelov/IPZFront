@@ -99,3 +99,25 @@ new Swiper(".home-product-slider", {
     prevEl: galleryLeft,
   },
 });
+
+const answer = document.querySelectorAll(".catalog__spoiler");
+
+answer.forEach((e) => {
+  let qaTop = e.querySelector(".catalog__option");
+  let plus = e.querySelector(".catalog__svg");
+  let cont = e.querySelector(".catalog__cont");
+
+  qaTop.addEventListener("click", () => {
+    plus.classList.toggle("catalog__svg_active");
+    cont.classList.toggle("catalog__cont_active");
+  });
+});
+
+Fancybox.bind("#gallery a", {
+  groupAll : true, // Group all items
+  on : {
+    ready : (fancybox) => {
+      console.log(`fancybox #${fancybox.id} is ready!`);
+    }
+  }
+});
