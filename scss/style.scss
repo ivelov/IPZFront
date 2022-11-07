@@ -1322,3 +1322,31 @@ main {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+//BASKET 
+.basket__container{
+  display: grid;
+  grid-template-columns: repeat(2, 660px);
+  grid-column-gap: 10px;
+}
+.info-form__container{
+ background-color: $contrast-color;
+  .info-form{
+    padding: 20px;
+  } 
+}
+
+.product__container{
+  max-height: 300px;
+  background-color: $contrast-color;
+}
