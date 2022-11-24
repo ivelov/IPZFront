@@ -7,6 +7,7 @@
     <title>Периферия</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -216,21 +217,22 @@
           <div class="t-panel-container">
             <div class="t-panel profile active">
               <!-- First tab panel content  -->
-              <form action="">
+              <form action="" id="sign-in">
                 <div class="popup-consultation__input">
-                  <input type="text" id="name" required />
-                  <label for="name">Name</label>
+                  <input type="text" name="login" required class="sign-in-form__input"/>
+                  <label for="login">Name</label>
                 </div>
                 <div class="popup-consultation__input">
-                  <input type="email" id="mail" required />
-                  <label for="mail">E-mail</label>
+                  <input type="password" name="password" required class="sign-in-form__input"/>
+                  <label for="password">Password</label>
                 </div>
                 <div class="popup-consultation__input">
                   <textarea
                     rows="4"
                     cols="20"
                     type="text"
-                    id="message"
+                    name="message"
+                    class="sign-in-form__input"
                   ></textarea>
                   <label for="message">Message</label>
                 </div>
@@ -238,25 +240,27 @@
               </form>
             </div>
             <div class="t-panel messages">
-              <form action="">
+              <form action="" id="reg-form">
                 <div class="popup-consultation__input">
-                  <input type="text" id="name" required />
-                  <label for="name">Name</label>
+                  <input type="text" name="login" required class="reg-form__input" />
+                  <label for="login">Name</label>
                 </div>
                 <div class="popup-consultation__input">
-                  <input type="email" id="mail" required />
-                  <label for="mail">E-mail</label>
+                  <input type="password" name="password" required class="reg-form__input"/>
+                  <label for="password">Password</label>
                 </div>
                 <div class="popup-consultation__input">
-                  <input type="email" id="mail" required />
-                  <label for="mail">E-mail</label>
+                  <input type="email" name="email" required class="reg-form__input"/>
+                  <label for="email">E-mail</label>
                 </div>
                 <div class="popup-consultation__input">
                   <textarea
+                    class="reg-form__input"
                     rows="4"
                     cols="20"
                     type="text"
-                    id="message"
+                    name="message"
+                    class="reg-form__input"
                   ></textarea>
                   <label for="message">Message</label>
                 </div>
@@ -278,7 +282,7 @@
           </li>
         </ul>
         <h2 class="title title_margin">Периферія</h2>
-        <div class="devices">
+        <div class="devices" id="devices">
           <div class="devices__item">
             <a href="">
               <img src="img/home-cat__img.jpg" alt="" class="devices__img" />
@@ -482,5 +486,6 @@
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/pop-up.js"></script>
+    <script src="js/register.js"></script>
   </body>
 </html>

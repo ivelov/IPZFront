@@ -1,3 +1,5 @@
+console.log(document.cookie);
+
 let basket = document.querySelector(".header__basket");
 let basketDropdown = document.querySelector(".basket__dropdown");
 let header = document.querySelector(".header");
@@ -113,11 +115,12 @@ answer.forEach((e) => {
   });
 });
 
-Fancybox.bind("#gallery a", {
+/*Fancybox.bind("#gallery a", {
   groupAll : true, // Group all items
   on : {
     ready : (fancybox) => {
       console.log(`fancybox #${fancybox.id} is ready!`);
     }
   }
-});
+});*/
+

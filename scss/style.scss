@@ -477,6 +477,13 @@ main {
 
 // HOME-CATALOG
 
+.cat-name{
+  font-size: 18px;
+}
+.cat-checkbox{
+  width: 25px;
+}
+
 .home-cat {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1078,8 +1085,9 @@ main {
       padding: 8px;
       background: none;
       border: 1px solid $border-color;
+      @include transition;
     }
-    &_active {
+    &_active:hover {
       border-color: $primary-color !important;
       color: $contrast-color !important;
       background: $primary-color !important;

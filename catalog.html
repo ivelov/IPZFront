@@ -7,6 +7,7 @@
     <title>Каталог товарів</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -131,7 +132,7 @@
           </div>
           <div class="header__icons">
             <button id="button-sign" class="header__sign">
-              <p>Увійти</p>
+              <p id="enter-btn">Увійти</p>
               <svg
                 width="32"
                 height="32"
@@ -216,21 +217,22 @@
           <div class="t-panel-container">
             <div class="t-panel profile active">
               <!-- First tab panel content  -->
-              <form action="">
+              <form action="" id="sign-in">
                 <div class="popup-consultation__input">
-                  <input type="text" id="name" required />
-                  <label for="name">Name</label>
+                  <input type="text" name="login" required class="sign-in-form__input"/>
+                  <label for="login">Name</label>
                 </div>
                 <div class="popup-consultation__input">
-                  <input type="email" id="mail" required />
-                  <label for="mail">E-mail</label>
+                  <input type="password" name="password" required class="sign-in-form__input"/>
+                  <label for="password">Password</label>
                 </div>
                 <div class="popup-consultation__input">
                   <textarea
                     rows="4"
                     cols="20"
                     type="text"
-                    id="message"
+                    name="message"
+                    class="sign-in-form__input"
                   ></textarea>
                   <label for="message">Message</label>
                 </div>
@@ -238,25 +240,27 @@
               </form>
             </div>
             <div class="t-panel messages">
-              <form action="">
+              <form action="" id="reg-form">
                 <div class="popup-consultation__input">
-                  <input type="text" id="name" required />
-                  <label for="name">Name</label>
+                  <input type="text" name="login" required class="reg-form__input" />
+                  <label for="login">Name</label>
                 </div>
                 <div class="popup-consultation__input">
-                  <input type="email" id="mail" required />
-                  <label for="mail">E-mail</label>
+                  <input type="password" name="password" required class="reg-form__input"/>
+                  <label for="password">Password</label>
                 </div>
                 <div class="popup-consultation__input">
-                  <input type="email" id="mail" required />
-                  <label for="mail">E-mail</label>
+                  <input type="email" name="email" required class="reg-form__input"/>
+                  <label for="email">E-mail</label>
                 </div>
                 <div class="popup-consultation__input">
                   <textarea
+                    class="reg-form__input"
                     rows="4"
                     cols="20"
                     type="text"
-                    id="message"
+                    name="message"
+                    class="reg-form__input"
                   ></textarea>
                   <label for="message">Message</label>
                 </div>
@@ -321,7 +325,7 @@
                     </use>
                   </svg>
                 </div>
-                <div class="catalog__desc">
+                <div class="catalog__desc" id="cat">
                   <a href="">
                     <input type="checkbox" name="kompyutery_do_15_000_grn">
                       Комп'ютери до 15 000 грн.
@@ -343,6 +347,7 @@
                       Комп'ютери до 15 000 грн.
                   </a><br>
                 </div>
+                <button class="apply_filter">Принять</button>
               </div>
             </div>
           </div>
@@ -357,13 +362,11 @@
             </p>
             <div class="catalog__sort">
               <span>Сортувати:</span>
-              <button>Від дешевих</button>
-              <button>Від дорогих</button>
-              <button class="catalog__sort_active">По переглядам</button>
-              <button>Оптимальні новинки</button>
+              <button class="catalog__sort_active ascending">Від дешевих</button>
+              <button class="catalog__sort_active descending">Від дорогих</button>
             </div>
-            <div class="catalog__content">
-              <div class="catalog__item">
+            <div class="catalog__content" id="prod">
+              <div class="catalog__item" id="img1">
                 <img src="img/home-cat__img.jpg" alt="" class="catalog__img" />
                 <h4 class="catalog__name">
                   <a href="">Оптимальный Игровой R5 3600 GTX 1630 16Gb</a>
@@ -736,5 +739,7 @@
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/pop-up.js"></script>
+    <script src="js/catalog.js" type="module"></script>
+    <script src="js/register.js"></script>
   </body>
 </html>
