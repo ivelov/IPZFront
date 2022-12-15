@@ -1,11 +1,22 @@
 <?php
+require_once 'env.php';
 
-$categories = [
-    ['name' => 'Видеокарты' , 'image' => 'https://cdn.forestresearch.gov.uk/2021/11/forestry-home-1.jpg'],
-    ['name' => 'Материнские платы' , 'image' => 'https://cdn.forestresearch.gov.uk/2021/11/forestry-home-1.jpg'],
-    ['name' => 'Оперативная память' , 'image' => 'https://cdn.forestresearch.gov.uk/2021/11/forestry-home-1.jpg'],
-    ['name' => 'Процессоры' , 'image' => 'https://cdn.forestresearch.gov.uk/2021/11/forestry-home-1.jpg'],
-];
+$mysqli = new mysqli("localhost", $GLOBALS['db_user'], $GLOBALS['db_pass'], $GLOBALS['db_name']);
+$result = $mysqli->query("SELECT * FROM categories");
 
-echo(json_encode($categories));
+if($result){
+    $categories = [];
+    foreach ($result as $category) {
+        array_push($categories, [
+            'name' => $category['name'],
+            'image' => isset($category['image']) ? $category['image'] : '',
+        ]);
+    }
+    var_dump(json_encode($categories));
+}else{
+    http_response_code(500);
+    echo mysqli_error($mysqli);
+}
+
+
 ?>

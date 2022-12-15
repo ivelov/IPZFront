@@ -14,7 +14,7 @@ $(function() {
 $.get("back/products.php",{},addProds)
 $(".ascending:first").on( "click", sort)
 $(".descending:first").on( "click", sort)
-$(".apply_filter").on("submit", applyFilter)
+$(".apply_filter").on("click", applyFilter)
 });
 
 function addProds(data){

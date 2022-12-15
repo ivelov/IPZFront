@@ -1,4 +1,4 @@
-console.log(document.cookie);
+
 
 let basket = document.querySelector(".header__basket");
 let basketDropdown = document.querySelector(".basket__dropdown");
