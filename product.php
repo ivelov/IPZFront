@@ -307,11 +307,11 @@
                 <img src="img/home-cat__img.jpg" class="product__small" />
               </a>
             </div>
-            <div class="product__description">
+            <div class="product__description" id="prod_name">
               <h2 class="product__title">
                 Оптимальний Игровой R3 1200 GTX 1050 Ti 8Gb
               </h2>
-              <div class="product__in-stock">
+              <div class="product__in-stock" >
                 <svg
                   width="10"
                   height="8"
@@ -330,7 +330,7 @@
                 В наявності
               </div>
               <p class="product__text">Про товар</p>
-              <table class="product__attr">
+              <table class="product__attr" id="prod_attr">
                 <tbody>
                   <tr class="product__attr-item">
                     <td>Процесор</td>
@@ -532,13 +532,13 @@
             <span>Характеристики</span>
           </div>
           <div class="product__char">
-            <table class="product__table">
-              <thead>
+            <table class="product__table" id="features">
+              <!--<thead>
                 <tr>
                   <td colspan="2" class="strong"><strong>Характеристики</strong></td>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody></tbody>-->
               <thead>
                 <tr>
                   <td colspan="2" class="strong"><strong>Процесор</strong></td>
@@ -962,6 +962,7 @@
       import { Fancybox } from "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.esm.js";
     </script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/product.js"></script>
     <script>
       var id = `<?php
       $url = $_SERVER['REQUEST_URI'];
@@ -969,13 +970,12 @@
       parse_str($url_components['query'], $params);
       // Display result
       echo $params['id'];
-      
       ?>`;
+      getProd(id);
     </script>
     <script src="js/script.js"></script>
-    <script src="js/product.js"></script>
     <script src="js/pop-up.js"></script>
     <script src="js/register.js"></script>
-    
+    <script src="js/fancy_box.js"></script>
   </body>
 </html>
