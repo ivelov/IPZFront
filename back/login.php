@@ -7,7 +7,7 @@ if(isset($_POST['login']) && isset($_POST['password'])){
 
     if($result){
         if(mysqli_num_rows($result) > 0){
-            echo $result[0]['id'];
+            echo mysqli_fetch_row($result)[0];
         }else{
             echo 'Failure';
         }

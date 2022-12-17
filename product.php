@@ -136,7 +136,7 @@
           </div>
           <div class="header__icons">
             <button id="button-sign" class="header__sign">
-              <p>Увійти</p>
+              <p id="enter-btn">Увійти</p>
               <svg
                 width="32"
                 height="32"
@@ -355,7 +355,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="product__buy">
+            <div class="product__buy" id="product__buy">
               <div class="product__left">
                 <ul>
                   <li>
@@ -390,7 +390,7 @@
                     type="button"
                     id="button-cart"
                     data-loading-text="Завантаження..."
-                    class="product__card button"
+                    class="product__card button purchase"
                   >
                     Придбати
                   </button>

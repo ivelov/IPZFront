@@ -17,6 +17,22 @@ $(".descending:first").on( "click", sort)
 $(".apply_filter").on("click", applyFilter)
 });
 
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 function addProds(data){
   let js = JSON.parse(data);
     let productsHTML = '';
@@ -50,15 +66,25 @@ function addProds(data){
     </div>
     <div class="catalog__buttons">
       <a class="catalog__button button">Детальніше</a>
-      <button class="button">Придбати</button>
+      <button class="button purchase" id="${js[key].id}">Придбати</button>
     </div>
   </div>`;
     }
   document.getElementById('prod').innerHTML = productsHTML;
+  for (const key in js) {
+    document.getElementById(js[key].id).addEventListener("click", addToCart(js[key].id)
+    )}
+    
+}
+function addToCart(id){
+  console.log(id);
+  $.post("back/addToCart.php",{userId : getCookie('userID'), productId : id});
 }
 function sort(event){
   $.post("back/products.php",{sortType: event.target.classList[1]},addProds)
 }
+
+
 
 function applyFilter(){
   let cats = document.getElementsByClassName('cat-checkbox');

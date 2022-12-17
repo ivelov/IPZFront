@@ -132,7 +132,7 @@
           </div>
           <div class="header__icons">
             <button id="button-sign" class="header__sign">
-              <p>Увійти</p>
+              <p id="enter-btn">Увійти</p>
               <svg
                 width="32"
                 height="32"
@@ -350,7 +350,7 @@
                         </div>
                   </form>
             </div>
-            <div class="product__container">
+            <div class="product__container" id="cartProds">
               <div class="product__wrapper_main">
                 <ul>
                   <li class="product__wrapper">
@@ -359,13 +359,14 @@
                   <li class="name quantity">
                     <div><a href="product.html" class="product__text">Клавиатура MSI Vigor<br> GK20 USB Black</a></div>
                     <div class="quantity__wrapper">
-                      <span class=decrease-button__wrapper><button>-</button></span>
-                      <input type="text" value="1" >
-                      <span class=increase-button__wrapper><button>+</button></span>
+                      <span class=increase-button__wrapper><button class="minus" data-id="prodId1">-</button></span>
+                      <input type="number" value="1" id="number">
+                      <span class=decrease-button__wrapper><button class="plus" data-id="prodId1">+</button></span>
                       <ul class="price__wrapper">
                         <li class="price__text">Ціна</li>
                         <li class="price__num">760 грн</li>
                       </ul>
+                      
                     </div>
                     
 
@@ -392,6 +393,7 @@
               </ul>
               </div>
             </div>
+            
         </div>
         
         </div>
@@ -525,6 +527,6 @@
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/pop-up.js"></script>
-    <script src="js/basket.js" type="module"></script>
     <script src="js/register.js"></script>
+    <script src="js/basket.js" type="module"></script>
   </body>

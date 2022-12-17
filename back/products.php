@@ -91,6 +91,7 @@ function index($page = 1){
                 continue;
             }
             array_push($productsFormated, [
+                'id' => $product['id'],
                 'name' => $product['name'],
                 'price' => $product['price'],
                 'image' => isset($product['image_link']) ? $product['image_link'] : 'img/home-cat__img.jpg',

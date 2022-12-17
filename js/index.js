@@ -12,9 +12,29 @@ $(function() {
       document.getElementById('cat').innerHTML = categoriesHTML;*/
   })
   $.get("back/products.php",{},addProds)
+  
   });
+  
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
   function addProds(data){
+
+    console.log(data);
     let js = JSON.parse(data);
       let productsHTML = '';
       for (const key in js) {
@@ -44,12 +64,21 @@ $(function() {
                 </div>
               <div class="home-product__buttons">
                 <a class="home-product__button button" href="/it-block/product.php?id=Комп1">Детальніше</a>
-                <button class="button">Придбати</button>
+                <button class="button purchase" id="${js[key].id}">Придбати</button>
               </div>
             </div>
         </div>`;
+        
       }
+      
+
     document.getElementById('swiper-main').innerHTML = productsHTML;
+    for (const key in js) {
+      document.getElementById(js[key].id).addEventListener("click", addToCart(js[key].id)
+      )}
   }
 
-  
+function addToCart(id){
+  console.log(id);
+  $.post("back/addToCart.php",{userId : getCookie('userID'), productId : id});
+}
