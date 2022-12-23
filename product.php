@@ -150,6 +150,7 @@
                 ></path>
               </svg>
             </button>
+            <a href="basket.html">
             <button class="header__basket">
               <svg
                 width="32"
@@ -174,6 +175,7 @@
               <p>Кошик <br />порожній</p>
               <div class="basket__dropdown">У кошику порожньо!</div>
             </button>
+            </a>
           </div>
         </div>
       </div>
@@ -307,8 +309,8 @@
                 <img src="img/home-cat__img.jpg" class="product__small" />
               </a>
             </div>
-            <div class="product__description" id="prod_name">
-              <h2 class="product__title">
+            <div class="product__description" >
+              <h2 class="product__title" id="prod_name">
                 Оптимальний Игровой R3 1200 GTX 1050 Ti 8Gb
               </h2>
               <div class="product__in-stock" >
@@ -528,11 +530,12 @@
               </div>
             </div>
           </div>
-          <div class="product__nav">
-            <span>Характеристики</span>
-          </div>
+
           <div class="product__char">
             <table class="product__table" id="features">
+            <div class="product__nav">
+            <span>Характеристики</span>
+            </div>
               <!--<thead>
                 <tr>
                   <td colspan="2" class="strong"><strong>Характеристики</strong></td>
@@ -540,11 +543,9 @@
               </thead>
               <tbody></tbody>-->
               <thead>
-                <tr>
-                  <td colspan="2" class="strong"><strong>Процесор</strong></td>
-                </tr>
+                
               </thead>
-              <tbody>
+              <tbody id="characteristics_body">
                 <tr>
                   <td>Процесор</td>
                   <td>Ryzen™ 3 1200</td>

@@ -2,7 +2,7 @@
 require_once 'env.php';
 
 if(!isset($_POST['category'])){
-    http_response_code(400);
+    http_response_code(412);
     exit;
 }
 

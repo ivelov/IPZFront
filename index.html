@@ -111,10 +111,10 @@
               ></path>
             </svg>
           </a>
-          <div class="header__search">
-            <input type="search" placeholder="Я шукаю..(Наприклад :3050)" />
+          <div class="header__search" >
+            <input type="search" placeholder="Я шукаю..(Наприклад :3050)" id="search"/>
             <span class="header__btn">
-              <button type="button" class="btn btn-lg">
+              <button type="button" class="btn btn-lg" onclick="searchProd()">
                 <svg
                   width="20"
                   height="20"
@@ -146,7 +146,7 @@
                 ></path>
               </svg>
             </button>
-            <button class="header__basket">
+            <a href="basket.html"><button class="header__basket">
               <svg
                 width="32"
                 height="32"
@@ -169,7 +169,7 @@
               </svg>
               <p>Кошик <br />порожній</p>
               <div class="basket__dropdown">У кошику порожньо!</div>
-            </button>
+            </button></a>
           </div>
         </div>
       </div>
@@ -178,7 +178,6 @@
           <nav class="header__menu">
             <ul>
               <li><a href="index.html" class="header__link">Головна</a></li>
-              <li><a href="catalog.html" class="header__link">Каталог товарів</a></li>
               <li><a href="contact.html" class="header__link">Контакти</a></li>
               <li><a href="devices.html" class="header__link">Периферія</a></li>
             </ul>
@@ -807,5 +806,6 @@
     <script src="js/pop-up.js"></script>
     <script src="js/register.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/findProd.js"></script>
   </body>
 </html>

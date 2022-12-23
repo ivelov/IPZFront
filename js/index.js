@@ -74,11 +74,10 @@ $(function() {
 
     document.getElementById('swiper-main').innerHTML = productsHTML;
     for (const key in js) {
-      document.getElementById(js[key].id).addEventListener("click", addToCart(js[key].id)
-      )}
+      document.getElementById(js[key].id).addEventListener("click", 
+      function(event){
+        console.log(event.target.id);
+  $.post("back/addToCart.php",{userId : getCookie('userID'), productId : event.target.id},function(data){console.log(data);})
+      })}
   }
 
-function addToCart(id){
-  console.log(id);
-  $.post("back/addToCart.php",{userId : getCookie('userID'), productId : id});
-}

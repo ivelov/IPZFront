@@ -1,13 +1,31 @@
 $.post("back/products.php", {}, )
 
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 function setGallery(data) {
   let js = JSON.parse(data);
-  let productIMG = '';
-  for (const key in js) {
+  let productIMG = `<a href="${js.image}" class="product__big">
+  <img src="${js.image}" class="product__big" />
+</a>`;
+  for (let i = 0;i<3;i++) {
     productIMG += `
-        <a href="${js[key].image}" class="product__big">
-            <img src="${js[key].image}" class="product__big" />
-        </a>`;
+        <a href="img/home-cat__img.jpg" class="product__small">
+                <img src="img/home-cat__img.jpg" class="product__small" />
+              </a>`;
   }
   document.getElementById('gallery').innerHTML = productIMG;
 }
@@ -25,10 +43,9 @@ function setProdDescr(data) {
   let productAttrHTML = '';
   productAttrHTML += `<tbody>`;
   for (const featureName in js['features']) {
-
     productAttrHTML += `
           <tr class="product__attr-item">
-          <td>${js[featureName]}</td>
+          <td>${featureName}</td>
           <td>${js['features'][featureName]}</td>
         </tr>`;
   }
@@ -41,23 +58,22 @@ function setProdDescr(data) {
 
 
 function setFeatures(data) {
+  console.log(data);
   setGallery(data);
   setProdDescr(data);
-
+  prodBuy(data);
   let js = JSON.parse(data);
   let featuresHTML = '';
 
   featuresHTML += `
       <thead>
-          <tr>
-          <td colspan="2" class="strong"><strong>${js.name}</strong></td>
-        </tr>
+
       </thead>
       <tbody>`;
   for (const featureName in js['features']) {
     featuresHTML += `
         <tr>
-          <td>${js[featureName]}</td>
+          <td>${featureName}</td>
           <td>${js['features'][featureName]}</td>
         </tr>`
   }
@@ -65,10 +81,7 @@ function setFeatures(data) {
         </tbody>
         `;
   document.getElementById('features').innerHTML = featuresHTML;
-  document.getElementById('prod').innerHTML = productsHTML;
-  for (const key in js) {
-    document.getElementById(js[key].id).addEventListener("click", addToCart(js[key].id)
-    )}
+  
 }
 //тут добавил
 function addToCart(id){
@@ -77,13 +90,14 @@ function addToCart(id){
 }
 //
 function getProd(id) {
-  $.post("back/products.php", {
+  $.post("back/product.php", {
     id: id
   }, setFeatures)
 }
 //тут добавил
 function prodBuy(data){
   let js = JSON.parse(data);
+  console.log(js);
   let prodBuyHTML = '';
   prodBuyHTML += `
   <div class="product__left">
@@ -95,7 +109,7 @@ function prodBuy(data){
     </li>
     <li>
       <div class="product__special">
-        <span>18959 грн</span>
+        <span>${js.price}</span>
       </div>
     </li>
   </ul>
@@ -118,9 +132,9 @@ function prodBuy(data){
   <div class="product__buttons">
     <button
       type="button"
-      id="button-cart"
+      id="${js.id}"
       data-loading-text="Завантаження..."
-      class="product__card button purchase" id="${js.id}"
+      class="product__card button purchase" 
     >
       Придбати
     </button>
@@ -257,5 +271,9 @@ function prodBuy(data){
   </div>
 </div>
 </div>`;
-
-}
+document.getElementById('product__buy').innerHTML = prodBuyHTML;
+console.log(js.id);
+document.getElementById(js.id).addEventListener("click", function(event){
+  console.log(event.target.id);
+$.post("back/addToCart.php",{userId : getCookie('userID'), productId : event.target.id},function(data){console.log(data);})
+})}

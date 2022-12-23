@@ -7,7 +7,7 @@ if(isset($_POST['id'])){
 
     if($result){
         if(mysqli_num_rows($result) > 0){
-            $product = $result[0];
+            $product = $result->fetch_assoc();
 
             $featuresFormated = [];
             $features = $mysqli->query("SELECT value, c.name FROM ((products a
@@ -21,6 +21,7 @@ if(isset($_POST['id'])){
                 };
             }
             echo json_encode([
+                'id' => $product['id'],
                 'name' => $product['name'],
                 'price' => $product['price'],
                 'image' => isset($product['image_link']) ? $product['image_link'] : 'img/home-cat__img.jpg',

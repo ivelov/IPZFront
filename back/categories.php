@@ -8,6 +8,7 @@ if($result){
     $categories = [];
     foreach ($result as $category) {
         array_push($categories, [
+            'id' => $category['id'],
             'name' => $category['name'],
             'image' => isset($category['image_link']) ? $category['image_link'] : 'img/home-cat__img.jpg',
         ]);

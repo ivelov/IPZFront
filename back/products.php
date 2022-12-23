@@ -41,12 +41,19 @@ function index($page = 1){
     }
 
     if(isset($_POST['category'])){
-        $queryString .= " $whereWord b.name = '{$_POST['category']}'";
+        $queryString .= " $whereWord b.id = '{$_POST['category']}'";
         if($whereWord === 'WHERE'){
             $whereWord = 'AND';
         }
     }
     
+    if(isset($_POST['keyword'])){
+        $queryString .= " $whereWord a.name LIKE '%{$_POST['keyword']}%'";
+        if($whereWord === 'WHERE'){
+            $whereWord = 'AND';
+        }
+    }
+
     $queryString .= " LIMIT ".($page - 1).", 10";
     $products = $mysqli->query($queryString);
     

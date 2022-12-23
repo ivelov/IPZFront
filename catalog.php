@@ -291,21 +291,21 @@
               <div class="price-change-filter">
                 <input
                   name="price[min]"
-                  value="14075"
-                  type="text"
+                  value="500"
+                  type="number"
                   class="form-control input-sm"
                   id="min-price-value"
                 />
                 <input
                   name="price[max]"
                   value="231290"
-                  type="text"
+                  type="number"
                   class="form-control input-sm"
                   id="max-price-value"
                 />
               </div>
             </div>
-            <div class="catalog__spoiler catalog__border-bottom">
+            <div class="catalog__spoiler catalog__border-bottom" id="characteristic_name">
               <div class="catalog__cont">
                 <div class="catalog__option">
                   <h4 class="catalog__sub-title">Ціна</h4>
@@ -346,9 +346,11 @@
                       Комп'ютери до 15 000 грн.
                   </a><br>
                 </div>
-                <button class="apply_filter">Принять</button>
+                
               </div>
+              
             </div>
+            <button class="apply_filter">Принять</button>
           </div>
           <div class="catalog__right">
             <h2 class="catalog__title">Ігровий ПК</h2>
@@ -735,6 +737,15 @@
         <p class="footer__pow">© 2006 - 2022 Ігровий комп'ютер - це IT-BLOK!</p>
       </div>
     </footer>
+    <script>
+      var id = `<?php
+      $url = $_SERVER['REQUEST_URI'];
+      $url_components = parse_url($url);
+      parse_str($url_components['query'], $params);
+      // Display result
+      echo $params['id'];
+      ?>`;
+    </script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/pop-up.js"></script>
