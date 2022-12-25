@@ -350,7 +350,7 @@
               </div>
               
             </div>
-            <button class="apply_filter">Принять</button>
+            <button class="apply_filter button">Принять</button>
           </div>
           <div class="catalog__right">
             <h2 class="catalog__title">Ігровий ПК</h2>

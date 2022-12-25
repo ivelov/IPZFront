@@ -38,6 +38,8 @@ $(function() {
     let js = JSON.parse(data);
       let productsHTML = '';
       for (const key in js) {
+      console.log(js[key].id);
+
       productsHTML +=`<div class="home-product__item swiper-slide">
       <img src="img/home-cat__img.jpg" alt="" class="home-product__img" />
       <h4 class="home-product__name">
@@ -63,7 +65,7 @@ $(function() {
                   <span class="home-product__price-new">${js[key].price}</span>
                 </div>
               <div class="home-product__buttons">
-                <a class="home-product__button button" href="/it-block/product.php?id=Комп1">Детальніше</a>
+                <a class="home-product__button button" href="product.php?id=${js[key].id}">Детальніше</a>
                 <button class="button purchase" id="${js[key].id}">Придбати</button>
               </div>
             </div>

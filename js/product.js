@@ -97,28 +97,16 @@ function getProd(id) {
 //тут добавил
 function prodBuy(data){
   let js = JSON.parse(data);
-  console.log(js);
   let prodBuyHTML = '';
   prodBuyHTML += `
   <div class="product__left">
   <ul>
-    <li>
-      <span class="product__price-old">
-        <span>21044 грн</span>
-      </span>
-    </li>
     <li>
       <div class="product__special">
         <span>${js.price}</span>
       </div>
     </li>
   </ul>
-  <div class="product__informer">
-    <span class="product__informer_percent"
-      >Економія <span class="product__save-perc">10</span>%
-    </span>
-    - <span class="product__save-price">2104 грн</span>
-  </div>
 </div>
 <div class="product__right">
   <div class="product__code">
@@ -138,22 +126,8 @@ function prodBuy(data){
     >
       Придбати
     </button>
-    <button
-      type="button"
-      data-loading-text="Загрузка..."
-      class="product__order"
-      data-target="#boc_order"
-      data-product="Оптимальний Игровой R3 1200 GTX 1050 Ti 8Gb"
-      data-product_id="20618"
-    >
-      Придбати в один клік
-    </button>
   </div>
   <div class="product__info">
-    <p class="product__text">У вартість ПК входить</p>
-    <ul>
-      <li>• Доставка. Страхування. Win 10-11. Сервіс 2 роки.</li>
-    </ul>
     <p class="product__text">Способи оплати</p>
     <div class="product__icons">
       <svg

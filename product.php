@@ -184,9 +184,6 @@
           <nav class="header__menu">
             <ul>
               <li><a href="index.html" class="header__link">Головна</a></li>
-              <li>
-                <a href="catalog.html" class="header__link">Всі комп'ютери</a>
-              </li>
               <li><a href="contact.html" class="header__link">Контакти</a></li>
               <li><a href="devices.html" class="header__link">Периферія</a></li>
             </ul>
