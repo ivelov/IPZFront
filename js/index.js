@@ -38,10 +38,10 @@ $(function() {
     let js = JSON.parse(data);
       let productsHTML = '';
       for (const key in js) {
-      console.log(js[key].id);
+      console.log(js[key].image);
 
       productsHTML +=`<div class="home-product__item swiper-slide">
-      <img src="img/home-cat__img.jpg" alt="" class="home-product__img" />
+      <img src="${js[key].image}" alt="" class="home-product__img" />
       <h4 class="home-product__name">
         <a href="">${js[key].name}</a>
       </h4>

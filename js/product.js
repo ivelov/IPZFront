@@ -23,8 +23,8 @@ function setGallery(data) {
 </a>`;
   for (let i = 0;i<3;i++) {
     productIMG += `
-        <a href="img/home-cat__img.jpg" class="product__small">
-                <img src="img/home-cat__img.jpg" class="product__small" />
+        <a href="${js.image}" class="product__small">
+                <img src="${js.image}" class="product__small" />
               </a>`;
   }
   document.getElementById('gallery').innerHTML = productIMG;
@@ -103,7 +103,7 @@ function prodBuy(data){
   <ul>
     <li>
       <div class="product__special">
-        <span>${js.price}</span>
+        <span>${js.price} грн</span>
       </div>
     </li>
   </ul>

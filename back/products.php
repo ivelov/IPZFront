@@ -5,7 +5,7 @@ function index($page = 1){
 
     $mysqli = new mysqli("localhost", $GLOBALS['db_user'], $GLOBALS['db_pass'], $GLOBALS['db_name']);
 
-    $queryString = "SELECT a.id, a.name, a.price FROM products a 
+    $queryString = "SELECT a.id, a.name, a.price, a.image_link FROM products a 
         INNER JOIN categories b ON a.category_id = b.id";
     
     $whereWord = 'WHERE';

@@ -32,6 +32,7 @@ function getCookie(cname) {
   let allPrices = 0;
   function renderCart(){
       $.post("back/cart.php",{userId : getCookie('userID')},function(data){
+        console.log(data);
           let js = JSON.parse(data);
           console.log(js);
           let cart = {};
@@ -71,8 +72,13 @@ function getCookie(cname) {
                   
           }
           cartProdHTML +=`
-          <label>Ціна до сплати:</label>
-          <p id="allPrices">${allPrices}</p>`;
+          <div style="display: flex;
+          align-items: center;
+          justify-content: right;
+          margin-right: 20px;">
+          <label >Ціна до сплати:</label>
+          <span id="allPrices" class="total__price">${allPrices}</span>
+          </div>`;
           
   
           document.getElementById('cartProds').innerHTML = cartProdHTML;
@@ -103,8 +109,6 @@ function getCookie(cname) {
           
           const minusFunc = id =>{
               change(-1);
-              
-              
               cart[id]["count"]--;
               cart[id]["price"] = cart[id]["startPrice"]*cart[id]["count"];
               allPrices = allPrices - cart[id]["startPrice"];

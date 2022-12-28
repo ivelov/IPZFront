@@ -152,6 +152,8 @@
             </button>
             <a href="basket.html">
             <button class="header__basket">
+            <p>Кошик</p>
+
               <svg
                 width="32"
                 height="32"
@@ -172,7 +174,6 @@
                   fill="#777E90"
                 ></path>
               </svg>
-              <p>Кошик <br />порожній</p>
               <div class="basket__dropdown">У кошику порожньо!</div>
             </button>
             </a>

@@ -63,11 +63,13 @@ function getCookie(cname) {
 }
 
 function addProds(data) {
+  
   let js = JSON.parse(data);
   let productsHTML = '';
+  
   for (const key in js) {
     productsHTML += `<div class="catalog__item">
-    <img src="img/home-cat__img.jpg" alt="" class="catalog__img" />
+    <img src="${js[key].image}" alt="" class="catalog__img" />
     <h4 class="catalog__name">
       <a href="">${js[key].name}</a>
     </h4>
@@ -113,6 +115,7 @@ function addProds(data) {
 
 function sort(event) {
   $.post("back/products.php", {
+    category: id,
     sortType: event.target.classList[1]
   }, addProds)
 }
